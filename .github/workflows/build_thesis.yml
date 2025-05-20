@@ -23,7 +23,7 @@ jobs:
       - name: Build Thesis PDF inside Devcontainer
         uses: devcontainers/ci@v0.3
         with:
-          imageName: ghcr.io/${{ github.repository_owner }}/latex-devcontainer
+          imageName: ghcr.io/${{ github.repository_owner }}/university-of-tsukuba-sie-latex-template-container
           runCmd: make
 
       - name: Upload compiled PDF
