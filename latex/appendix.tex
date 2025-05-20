@@ -1,0 +1,56 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\section{Experimental Parameters}
+
+All simulations were run using the \texttt{middleearth-sim} engine, a custom-built framework for evaluating probabilistic pathfinding with resource constraints. Parameters used in the primary experiments are shown below:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{l c}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+Initial Food Supply & 10 units \\
+Initial Water Supply & 8 units \\
+Orc Encounter Probability (Mordor) & 0.75 \\
+Safe Rest Zones & Rivendell, Lothlórien, Shire \\
+Daily Travel Limit & 2 units/day \\
+Detection Radius for Hazards & 1 unit \\
+Adaptive Planning Frequency & Every 2 steps \\
+\bottomrule
+\end{tabular}
+\caption{Key parameters used in simulation experiments.}
+\end{table}
+
+\section{Algorithmic Notes}
+
+\noindent
+All pathfinding was performed using a modified A* algorithm with dual heuristics:
+\begin{itemize}
+    \item \textbf{Cost-to-go}: Estimated remaining travel time to destination.
+    \item \textbf{Survivability heuristic}: Incorporates threat level and remaining resources.
+\end{itemize}
+
+To deal with uncertainty, a Monte Carlo rollout approach was used to estimate path viability under different hazard realizations. At each decision point, the top-$k$ candidate paths were evaluated over 100 randomized environment samples.
+
+\section{Middle-earth Terrain Model}
+
+\noindent
+The map used for simulation was manually digitized from original sketches by Bilbo Baggins and validated against elven cartographic archives. Key features include:
+\begin{itemize}
+    \item Realistic elevation modeling around the Misty Mountains.
+    \item Dynamic hazard generation in the Dead Marshes.
+    \item Variable path widths and traversal costs in the Forests of Mirkwood.
+\end{itemize}
+
+\section{Reproducibility}
+
+\noindent
+All code and data used in the experiments are available upon request from the Archives of Minas Tirith. Requests should be addressed to the High Steward's Office, referencing document ID \texttt{TSP-RING-2028}.
+
+\vspace{1em}
+\noindent
+May your own travels be fruitful, your provisions sufficient, and your paths free of orcs.
+
+\end{document}

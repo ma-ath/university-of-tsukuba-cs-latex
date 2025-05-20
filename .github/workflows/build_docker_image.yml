@@ -1,0 +1,27 @@
+name: Build LaTeX Image
+
+on:
+  workflow_dispatch:  # Enables manual trigger only
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write  # Needed to push image to GHCR
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Log in to GitHub Container Registry
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Build and Push Dev Container Image
+        uses: devcontainers/ci@v0.3
+        with:
+          imageName: ghcr.io/${{ github.repository_owner }}/latex-devcontainer
+          cacheFrom: ghcr.io/${{ github.repository_owner }}/latex-devcontainer
+          push: always
+          runCmd: |
+            echo "Docker image built and pushed successfully."

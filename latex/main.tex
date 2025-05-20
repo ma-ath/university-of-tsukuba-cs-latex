@@ -1,0 +1,83 @@
+\documentclass[12pt, a4paper]{report}
+% Use the xeCJK package for CJK (Chinese, Japanese, Korean) font support
+\usepackage{xeCJK} % Enable support for Japanese fonts with XeLaTeX
+\setCJKmainfont{Noto Serif CJK JP}
+\setCJKsansfont{Noto Sans CJK JP}
+\setCJKmonofont{Noto Sans Mono CJK JP}
+\usepackage{sie-en}
+\usepackage{array}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{bookmark}
+\usepackage{booktabs}
+\usepackage{colortbl}
+\usepackage{diagbox}
+\usepackage{graphicx}
+\usepackage{newtxtext,newtxmath}
+\usepackage{xurl}
+\usepackage{biblatex}
+\usepackage{subcaption}
+\usepackage{blindtext}
+\usepackage{subfiles}
+\usepackage{xcolor, soul}
+\usepackage{amsmath, bm}
+\usepackage{amsfonts}
+\usepackage[scale=0.85]{noto-mono}
+\usepackage{hyperref}
+\setlength{\marginparwidth}{2cm}
+\usepackage{todonotes}
+
+\graphicspath{{images}}
+\addbibresource{references.bib}
+
+\setcounter{tocdepth}{3}
+\setcounter{page}{-1}
+
+\title{There and Back Again: A Study in Probabilistic Pathfinding under Resource Constraints}
+
+\author{Frodo Baggins}
+
+\programfield{Doctoral Program in Computer Science}
+
+\advisor{Mithrandir}
+
+%% Name of department + year and month
+%% Please rewrite as necessary.
+\majorfield{the Degree of Doctor of Philosophy in Engineering}
+
+\graduateyear{2028}
+\graduatemonth{March}
+
+\abstract{
+    \noindent
+    This thesis addresses a variant of the classical Traveling Salesman Problem (TSP) in which the traveler must complete a journey while managing limited resources—such as food, water, or stamina—and navigating through a partially observable environment fraught with uncertainty. We introduce a probabilistic path planning framework that extends traditional TSP formulations to account for stochastic hazards (e.g., enemy encounters or blocked paths) and resource depletion. The proposed model balances route optimality with survival likelihood, integrating constraint-aware heuristics and risk estimation methods. 
+
+    \noindent
+    To evaluate our approach, we conducted extensive simulations based on terrain and travel data inspired by real-life conditions across Middle-earth, modeling key challenges such as unpredictable orc ambushes and the scarcity of safe resting points. These experiments demonstrate the framework's effectiveness in planning resilient, efficient routes under adverse conditions. This work lays a foundation for future exploration in robust autonomous navigation and constrained optimization under uncertainty.
+}
+
+\begin{document}
+
+\maketitle
+\makeabstract{}
+\maketableofcontents{}
+
+\chapter{Introduction}
+\subfile{introduction}
+
+\chapter*{Acknowledgements}
+\addcontentsline{toc}{chapter}{Acknowledgements}
+\subfile{acknowledgements}
+\newpage
+
+\chapter*{Appendix}
+\addcontentsline{toc}{chapter}{Appendix}
+\setcounter{section}{0}
+\setcounter{chapter}{6}
+\subfile{appendix}
+\newpage
+
+\addcontentsline{toc}{chapter}{Bibliography}
+\printbibliography{}
+
+\end{document}
